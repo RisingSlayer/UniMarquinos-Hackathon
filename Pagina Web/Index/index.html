@@ -93,14 +93,14 @@
             <button class="close-button" onclick="toggleInputs(event)">X</button>
             <div id="inputs">
                 <label for="ubicacion">Ubicacion:</label>
-                <input type="text" id="ubicacion" name="ubicacion">
+                <input type="text" id="ubicacion" name="ubicacion" placeholder="Buscar ubicación de inicio">
                 <label for="destino">Destino:</label>
-                <input type="text" id="destino" name="destino">
+                <input type="text" id="destino" name="destino" placeholder="Buscar destino">
             </div>
-        </div>
+      </div>
     </div>
     </div>
     <script src="script.js"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBGL2bc17XyMQGvSxSqyT-5XJ4sf69z3xI&callback=iniciarMap"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBGL2bc17XyMQGvSxSqyT-5XJ4sf69z3xI&libraries=places&callback=iniciarMap"></script>
 </body>
 </html>
