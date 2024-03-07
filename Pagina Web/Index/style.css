@@ -1,0 +1,218 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'poppins';
+}
+
+body{
+    background: rgb(247, 247, 247);
+}
+
+.header{
+    background-color: #131e36;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    height: 70px;
+    padding: 10px 10%;
+    position: relative;
+    z-index: 2;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.9);
+}
+
+.header .logo{
+    cursor: pointer;
+    margin-right: auto;
+}
+
+.header .logo img{
+    height: 50px;
+    width: auto;
+    transition: all 0.3s;
+    border-radius: 7px;
+}
+
+.header .logo img:hover{
+    transform: scale(1.05);
+}
+
+.header .navs-links{
+    list-style: none;
+}
+
+.header .navs-links li{
+    display: inline-block;
+    padding: 0 20px;
+    transition: all 0.8s;
+}
+
+.header .navs-links li:hover{
+    transform: scale(1.08);
+}
+
+.header .navs-links li a{
+    font-size: 700;
+    color: #c0d6df;
+    text-decoration: none;
+}
+
+.header .navs-links li a:hover{
+    color: #c0d6df;
+}
+
+.header .button-1 button{
+    height: 50px;
+    width: auto;
+    font-weight: 700;
+    color: rgb(0, 0, 0);
+    padding: 9px 25px;
+    background: white;
+    border-color: black;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
+    margin-left: 20px;
+}
+
+.header .button-1 button:hover{
+    background-color: rgb(167, 233, 47);
+    transform: scale(1.05);
+}
+
+#map-container {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+}
+
+#map {
+    height: 100%;
+    width: 100%;
+}
+
+.button {
+  position: absolute;
+  cursor: pointer;
+  background: none;
+  border: none;
+  display: flex;
+  flex-direction: column;
+  width: 70px;
+  gap: 4px;
+  z-index: 3;
+  animation: move 2s infinite ease; /* Agregamos la animación aquí */
+
+}
+
+@keyframes move {
+  0% {
+      transform: translateX(0);
+  }
+
+  50% {
+      transform: translateX(20px);
+  }
+
+  100% {
+      transform: translateX(0);
+  }
+}
+
+.round {
+  width: 8px;
+  height: 8px;
+  background: #023e8a;
+  border-radius: 50%;
+}
+
+.line {
+  display: flex;
+  gap: 2px;
+}
+
+.two {
+  transform: translateX(10px);
+}
+
+.three {
+  transform: translateX(20px);
+}
+
+.four {
+  transform: translateX(30px);
+}
+
+.five {
+  transform: translateX(20px);
+}
+
+.six {
+  transform: translateX(10px);
+}
+
+.floating-button {
+  position: absolute;
+  top: 50%;
+  right: 105px;
+  transform: translateY(-50%);
+  z-index: 3;
+}
+
+
+.inputs-container {
+    position: fixed;
+    top: 0;
+    right: -300px;
+    width: 300px;
+    height: 100%;
+    background-color: white;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    transition: right 0.3s ease-in-out;
+    z-index: 4;
+}
+
+.close-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+}
+
+#inputs {
+   margin-top: 100px;
+}
+
+.inputs-visible {
+    right: 0;
+}
+
+#inputs label {
+    display: block;
+    margin-bottom: 10px;
+}
+
+#inputs input {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 20px;
+    box-sizing: border-box;
+}
+
+.close-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+    font-size: 16px;
+    background: none;
+    border: none;
+    color: #333;
+    padding: 5px;
+    margin-top: 85px;
+}

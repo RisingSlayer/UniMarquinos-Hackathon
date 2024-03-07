@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="Taxi-Churro" content="width=device-width, initial-scale=1.0">
+    <title>MotoMo</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="header">
+        <div class="logo">
+          <a href="/Pagina Web/Index/index.html"><img src="/Pagina Web/Images/Motomoto.png" alt="Logo"></a>
+        </div> 
+        <nav>
+            <ul class="navs-links">
+                <li>
+                    <a href="Movilidad/movilidad.html">Movilidad</a>
+                </li>
+                <li>
+                    <a href="#">Seguridad</a>
+                </li>
+                <li>
+                    <a href="../CU/Nosotros/nosotros.html">Sobre Nosotros</a>
+                </li>
+            </ul>
+        </nav>
+        <a href="../CU/Login/login.html" class="button-1">
+            <button>Conviertete en Lider</button>
+        </a>
+    </header>
+    <div id="map-container">
+        <div id="map"></div>
+        <div class="floating-button">
+            <button class="button">
+                <div class="line one">
+                  <div class="round"></div>
+                  <div class="round"></div>
+                  <div class="round"></div>
+                  <div class="round"></div>
+              
+                </div>
+                <div class="line two">
+                  <div class="round"></div>
+                  <div class="round"></div>
+                  <div class="round"></div>
+                  <div class="round"></div>
+              
+                </div>
+                <div class="line three">
+                  <div class="round"></div>
+                  <div class="round"></div>
+                  <div class="round"></div>
+                  <div class="round"></div>
+              
+                </div>
+                  <div class="line four">
+                  <div class="round"></div>
+                  <div class="round"></div>
+                  <div class="round"></div>
+                  <div class="round"></div>
+              
+                </div>
+                  
+                  <div class="line five">
+                  <div class="round"></div>
+                  <div class="round"></div>
+                  <div class="round"></div>
+                  <div class="round"></div>
+              
+                </div>
+                  
+                  <div class="line six">
+                  <div class="round"></div>
+                  <div class="round"></div>
+                  <div class="round"></div>
+                  <div class="round"></div>
+              
+                </div>
+                  
+                  <div class="line seven">
+                  <div class="round"></div>
+                  <div class="round"></div>
+                  <div class="round"></div>
+                  <div class="round"></div>
+              
+                </div>
+              </button>
+        </div>
+        <div class="inputs-container">
+            <button class="close-button" onclick="toggleInputs(event)">X</button>
+            <div id="inputs">
+                <label for="ubicacion">Ubicacion:</label>
+                <input type="text" id="ubicacion" name="ubicacion">
+                <label for="destino">Destino:</label>
+                <input type="text" id="destino" name="destino">
+            </div>
+        </div>
+    </div>
+    </div>
+    <script src="script.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBGL2bc17XyMQGvSxSqyT-5XJ4sf69z3xI&callback=iniciarMap"></script>
+</body>
+</html>
