@@ -347,3 +347,18 @@ body{
     margin: 10px auto; /* Para centrar el botón */
 }
 
+.cancelar-pago-button {
+    background-color: #ff4d4d; /* Rojo */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+    margin-top: 10px; /* Espacio entre botones */
+}
+
+.cancelar-pago-button:hover {
+    background-color: #e63946; /* Rojo más oscuro al pasar el mouse */
+}
+
+

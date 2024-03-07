@@ -314,8 +314,8 @@ function mostrarProcesoPago(chofer) {
 
     // Crear la imagen de Yape
     var imagenYape = document.createElement('img');
-    imagenYape.src = '../Images/yapejeje.png';
-    imagenYape.classList.add('yape-image');
+    imagenYape.src = 'ruta/a/yapejeje.png';
+    imagenYape.classList.add('imagen-yape');
     imagenYape.style.display = 'none'; // Ocultar la imagen por defecto
 
     // Crear el botón de confirmar pago
@@ -327,6 +327,15 @@ function mostrarProcesoPago(chofer) {
     confirmarPagoButton.addEventListener('click', function() {
         var metodoPago = metodoPagoSelect.value;
         alert(`Pago confirmado con ${metodoPago} para ${chofer.nombre}`);
+        cerrarProcesoPago(overlayPago);
+    });
+
+    // Crear el botón de cancelar pago
+    var cancelarPagoButton = document.createElement('button');
+    cancelarPagoButton.textContent = 'Cancelar';
+    cancelarPagoButton.classList.add('cancelar-pago-button');
+    // Agregar el evento al botón de cancelar pago
+    cancelarPagoButton.addEventListener('click', function() {
         cerrarProcesoPago(overlayPago);
     });
 
@@ -347,7 +356,9 @@ function mostrarProcesoPago(chofer) {
     procesoPagoContainer.appendChild(metodoPagoSelect);
     procesoPagoContainer.appendChild(document.createElement('br'));
     procesoPagoContainer.appendChild(imagenYape); // Agregar la imagen de Yape
+    procesoPagoContainer.appendChild(document.createElement('br'));
     procesoPagoContainer.appendChild(confirmarPagoButton); // Agregar el botón de confirmar pago
+    procesoPagoContainer.appendChild(cancelarPagoButton); // Agregar el botón de cancelar pago
 
     // Agregar el contenedor del proceso de pago al recuadro de pago
     overlayPago.appendChild(procesoPagoContainer);
@@ -355,6 +366,8 @@ function mostrarProcesoPago(chofer) {
     // Agregar el recuadro de pago a la página
     document.body.appendChild(overlayPago);
 }
+
+
 
 
 
