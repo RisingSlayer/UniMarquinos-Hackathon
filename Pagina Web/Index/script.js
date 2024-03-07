@@ -171,4 +171,211 @@ function toggleInputs() {
     inputsContainer.classList.toggle('inputs-visible');
 }
 
+function mostrarListaChoferes() {
+    // Crear el contenedor del rectángulo blanco
+    var overlay = document.createElement('div');
+    overlay.classList.add('overlay');
+
+    // Crear el contenedor de la lista de choferes
+    var choferesContainer = document.createElement('div');
+    choferesContainer.classList.add('choferes-container');
+    choferesContainer.id = 'lista-choferes'; // Establecer el id
+
+    // Crear el botón para cerrar el cuadro de lista de choferes
+    var closeButton = document.createElement('button');
+    closeButton.textContent = 'X';
+    closeButton.classList.add('close-button');
+    closeButton.addEventListener('click', function() {
+        cerrarListaChoferes(overlay); // Pasar el elemento overlay como argumento
+    });
+
+    // Crear el título de la lista de choferes
+    var title = document.createElement('h2');
+    title.textContent = 'Choferes Disponibles';
+
+    // Crear la tabla
+    var tabla = document.createElement('table');
+    tabla.classList.add('chofer-table');
+
+    // Crear la fila de cabecera
+    var cabecera = document.createElement('tr');
+
+    // Crear las celdas de la cabecera
+    var nombreCabecera = document.createElement('th');
+    nombreCabecera.textContent = 'Nombre';
+
+    var placaCabecera = document.createElement('th');
+    placaCabecera.textContent = 'Placa';
+
+    var precioCabecera = document.createElement('th');
+    precioCabecera.textContent = 'Precio';
+
+    var tiempoLlegadaCabecera = document.createElement('th');
+    tiempoLlegadaCabecera.textContent = 'Tiempo de Llegada';
+
+    var seleccionarCabecera = document.createElement('th');
+    seleccionarCabecera.textContent = ''; // La cabecera del botón no necesita texto
+
+    // Agregar las celdas a la fila de cabecera
+    cabecera.appendChild(nombreCabecera);
+    cabecera.appendChild(placaCabecera);
+    cabecera.appendChild(precioCabecera);
+    cabecera.appendChild(tiempoLlegadaCabecera);
+    cabecera.appendChild(seleccionarCabecera);
+
+    // Agregar la fila de cabecera a la tabla
+    tabla.appendChild(cabecera);
+
+    // Crear las filas con los datos de los choferes (ejemplo con 3 choferes)
+    var choferes = [
+        { nombre: "Juan Pérez", placa: "ABC123", precio: "S/2.00", tiempoLlegada: generarTiempoLlegada() },
+        { nombre: "María González", placa: "DEF456", precio: "S/2.50", tiempoLlegada: generarTiempoLlegada() },
+        { nombre: "Pedro Ramírez", placa: "GHI789", precio: "S/2.00", tiempoLlegada: generarTiempoLlegada() }
+    ];
+
+    choferes.forEach(function(chofer) {
+        var fila = document.createElement('tr');
+
+        // Crear las celdas con los datos del chofer
+        var nombreCelda = document.createElement('td');
+        nombreCelda.textContent = chofer.nombre;
+
+        var placaCelda = document.createElement('td');
+        placaCelda.textContent = chofer.placa;
+
+        var precioCelda = document.createElement('td');
+        precioCelda.textContent = chofer.precio;
+
+        var tiempoLlegadaCelda = document.createElement('td');
+        tiempoLlegadaCelda.textContent = chofer.tiempoLlegada + ' min';
+
+        var seleccionarCelda = document.createElement('td');
+        var seleccionarButton = document.createElement('button');
+        seleccionarButton.textContent = 'Seleccionar';
+        seleccionarButton.addEventListener('click', function() {
+            mostrarProcesoPago(chofer);
+        });
+        seleccionarCelda.appendChild(seleccionarButton);
+
+        // Agregar las celdas a la fila
+        fila.appendChild(nombreCelda);
+        fila.appendChild(placaCelda);
+        fila.appendChild(precioCelda);
+        fila.appendChild(tiempoLlegadaCelda);
+        fila.appendChild(seleccionarCelda);
+
+        // Agregar la fila a la tabla
+        tabla.appendChild(fila);
+    });
+
+    // Agregar el título al contenedor de la lista de choferes
+    choferesContainer.appendChild(title);
+
+    // Agregar la tabla al contenedor de la lista de choferes
+    choferesContainer.appendChild(tabla);
+
+    // Agregar el botón de cierre al contenedor de la lista de choferes
+    choferesContainer.appendChild(closeButton);
+
+    // Agregar el contenedor de la lista de choferes al rectángulo blanco
+    overlay.appendChild(choferesContainer);
+
+    // Agregar el rectángulo blanco a la página
+    document.body.appendChild(overlay);
+}
+
+function cerrarListaChoferes(overlay) {
+    document.body.removeChild(overlay); // Remover el elemento overlay
+}
+
+function mostrarProcesoPago(chofer) {
+    // Crear el contenedor del recuadro de pago
+    var overlayPago = document.createElement('div');
+    overlayPago.classList.add('overlay');
+
+    // Crear el contenedor del proceso de pago
+    var procesoPagoContainer = document.createElement('div');
+    procesoPagoContainer.classList.add('proceso-pago-container');
+
+    // Crear el título del proceso de pago
+    var title = document.createElement('h2');
+    title.textContent = 'Realizar Pago';
+
+    // Crear el texto con los datos del chofer
+    var datosChofer = document.createElement('p');
+    datosChofer.innerHTML = `<strong>Nombre:</strong> ${chofer.nombre}<br><strong>Placa:</strong> ${chofer.placa}<br><strong>Precio:</strong> ${chofer.precio}<br><strong>Tiempo de Llegada:</strong> ${chofer.tiempoLlegada} min`;
+
+    // Crear el selector de método de pago
+    var metodoPagoSelect = document.createElement('select');
+    metodoPagoSelect.innerHTML = `
+        <option value="efectivo">Efectivo</option>
+        <option value="yape">Yape</option>
+    `;
+
+    // Crear la imagen de Yape
+    var imagenYape = document.createElement('img');
+    imagenYape.src = '../Images/yapejeje.png';
+    imagenYape.classList.add('yape-image');
+    imagenYape.style.display = 'none'; // Ocultar la imagen por defecto
+
+    // Crear el botón de confirmar pago
+    var confirmarPagoButton = document.createElement('button');
+    confirmarPagoButton.textContent = 'Confirmar Pago';
+    confirmarPagoButton.classList.add('confirmar-pago-button');
+
+    // Agregar el evento al botón de confirmar pago
+    confirmarPagoButton.addEventListener('click', function() {
+        var metodoPago = metodoPagoSelect.value;
+        alert(`Pago confirmado con ${metodoPago} para ${chofer.nombre}`);
+        cerrarProcesoPago(overlayPago);
+    });
+
+    // Agregar el evento al selector de método de pago
+    metodoPagoSelect.addEventListener('change', function() {
+        if (metodoPagoSelect.value === 'yape') {
+            imagenYape.style.display = 'block'; // Mostrar la imagen de Yape si se selecciona Yape
+        } else {
+            imagenYape.style.display = 'none'; // Ocultar la imagen si se selecciona Efectivo
+        }
+    });
+
+    // Agregar los elementos al contenedor del proceso de pago
+    procesoPagoContainer.appendChild(title);
+    procesoPagoContainer.appendChild(datosChofer);
+    procesoPagoContainer.appendChild(document.createElement('br'));
+    procesoPagoContainer.appendChild(document.createTextNode('Seleccionar método de pago: '));
+    procesoPagoContainer.appendChild(metodoPagoSelect);
+    procesoPagoContainer.appendChild(document.createElement('br'));
+    procesoPagoContainer.appendChild(imagenYape); // Agregar la imagen de Yape
+    procesoPagoContainer.appendChild(confirmarPagoButton); // Agregar el botón de confirmar pago
+
+    // Agregar el contenedor del proceso de pago al recuadro de pago
+    overlayPago.appendChild(procesoPagoContainer);
+
+    // Agregar el recuadro de pago a la página
+    document.body.appendChild(overlayPago);
+}
+
+
+
+
+function cerrarProcesoPago(overlay) {
+    document.body.removeChild(overlay); // Remover el elemento overlay
+}
+
+function generarTiempoLlegada() {
+    return Math.floor(Math.random() * 10) + 1; // Número aleatorio entre 1 y 10
+}
+
+
+function cerrarListaChoferes(overlay) {
+    document.body.removeChild(overlay); // Remover el elemento overlay
+}
+
+function cerrarListaChoferes(overlay) {
+    document.body.removeChild(overlay); // Remover el elemento overlay
+}
+
+
+
 iniciarMap();
