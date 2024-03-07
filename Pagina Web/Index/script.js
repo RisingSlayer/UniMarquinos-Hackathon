@@ -314,8 +314,8 @@ function mostrarProcesoPago(chofer) {
 
     // Crear la imagen de Yape
     var imagenYape = document.createElement('img');
-    imagenYape.src = 'ruta/a/yapejeje.png';
-    imagenYape.classList.add('imagen-yape');
+    imagenYape.src = '../Images/yapejeje.png';
+    imagenYape.classList.add('yape-image');
     imagenYape.style.display = 'none'; // Ocultar la imagen por defecto
 
     // Crear el botón de confirmar pago
