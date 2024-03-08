@@ -1,0 +1,107 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-family: 'poppins';
+}
+
+body{
+    background: rgb(247, 247, 247);
+    margin: 0px;
+}
+
+.header{
+    background-color: #131e36;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    height: 70px;
+    padding: 10px 10%;
+    position: relative;
+    z-index: 2;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.9);
+}
+
+.header .logo{
+    cursor: pointer;
+    margin-right: auto;
+}
+
+.header .logo img{
+    height: 50px;
+    width: auto;
+    transition: all 0.3s;
+    border-radius: 7px;
+}
+
+.header .logo img:hover{
+    transform: scale(1.05);
+}
+
+.header .navs-links{
+    list-style: none;
+}
+
+.header .navs-links li{
+    display: inline-block;
+    padding: 0 20px;
+    transition: all 0.8s;
+}
+
+.header .navs-links li:hover{
+    transform: scale(1.08);
+}
+
+.header .navs-links li a{
+    font-size: 700;
+    color: #c0d6df;
+    text-decoration: none;
+}
+
+.header .navs-links li a:hover{
+    color: #c0d6df;
+}
+
+.header .button-1 button{
+    height: 50px;
+    width: auto;
+    font-weight: 700;
+    color: rgb(0, 0, 0);
+    padding: 9px 25px;
+    background: white;
+    border-color: black;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
+    margin-left: 20px;
+}
+
+.header .button-1 button:hover{
+    background-color: rgb(167, 233, 47);
+    transform: scale(1.05);
+}
+
+#Hello {
+    height: 92.7vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: url('/Pagina Web/images/Wallpaper.jpg') center/cover no-repeat;
+    position: relative;
+}
+
+#intro {
+    height: 100%;
+    width: 100%;
+}
+
+h1 {
+    color: white;
+    text-shadow: 10px 1px 2px black;
+    font-size: 4vw;
+    max-width: 800px; 
+    margin: 0 auto;
+    font-size: 200px;
+}
